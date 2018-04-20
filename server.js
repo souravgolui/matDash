@@ -4,7 +4,7 @@ const path = require('path');
 
 const api = require('./server/routes/api');
 
-const port = 80;
+const port = 8080;
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'dist')));
