@@ -1,0 +1,160 @@
+{
+    "id": "261a63ef-8964-3963-94bc-3d384e7be8bb",
+    "name": "matDash",
+    "description": "",
+    "order": [
+        "20d2cff5-276f-51c4-9ee4-6c7747d5adf9",
+        "5f9b98c5-a244-5159-6f25-206a6e13d779",
+        "11485079-c141-16df-6541-ad1aa1de9c97",
+        "ffb1676c-a5f9-ba9a-228b-8ea9a60a3c43"
+    ],
+    "folders": [],
+    "folders_order": [],
+    "timestamp": 1524595443216,
+    "owner": "2679861",
+    "public": false,
+    "events": [],
+    "variables": [],
+    "auth": null,
+    "requests": [{
+            "id": "11485079-c141-16df-6541-ad1aa1de9c97",
+            "headers": "Content-Type: application/x-www-form-urlencoded\n",
+            "headerData": [{
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "description": "",
+                "enabled": true
+            }],
+            "url": "http://localhost:3000/api/updateUser/5adf7c7c7f9f6c2b4cbca857",
+            "queryParams": [],
+            "events": [],
+            "pathVariables": {},
+            "pathVariableData": [],
+            "method": "PUT",
+            "data": [{
+                    "key": "name",
+                    "value": "Smriti",
+                    "description": "",
+                    "type": "text",
+                    "enabled": true
+                },
+                {
+                    "key": "username",
+                    "value": "iamsourav14326",
+                    "description": "",
+                    "type": "text",
+                    "enabled": true
+                },
+                {
+                    "key": "password",
+                    "value": "Sour99",
+                    "description": "",
+                    "type": "text",
+                    "enabled": true
+                }
+            ],
+            "dataMode": "urlencoded",
+            "version": 2,
+            "auth": null,
+            "time": 1524596768310,
+            "name": "MatDashUpdateData",
+            "description": "",
+            "collectionId": "261a63ef-8964-3963-94bc-3d384e7be8bb",
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null
+        },
+        {
+            "id": "20d2cff5-276f-51c4-9ee4-6c7747d5adf9",
+            "headers": "",
+            "headerData": [],
+            "url": "http://localhost:3000/api/userList/",
+            "queryParams": [],
+            "events": [],
+            "pathVariables": {},
+            "pathVariableData": [],
+            "method": "GET",
+            "data": null,
+            "dataMode": "params",
+            "version": 2,
+            "auth": null,
+            "time": 1524595503074,
+            "name": "MatDash",
+            "description": "",
+            "collectionId": "261a63ef-8964-3963-94bc-3d384e7be8bb",
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null
+        },
+        {
+            "id": "5f9b98c5-a244-5159-6f25-206a6e13d779",
+            "headers": "Content-Type: application/x-www-form-urlencoded\n",
+            "headerData": [{
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "description": "",
+                "enabled": true
+            }],
+            "url": "http://localhost:3000/api/insertUser/",
+            "queryParams": [],
+            "events": [],
+            "pathVariables": {},
+            "pathVariableData": [],
+            "method": "POST",
+            "data": [{
+                    "key": "name",
+                    "value": "SG",
+                    "description": "",
+                    "type": "text",
+                    "enabled": true
+                },
+                {
+                    "key": "username",
+                    "value": "SGM",
+                    "description": "",
+                    "type": "text",
+                    "enabled": true
+                },
+                {
+                    "key": "password",
+                    "value": "14326",
+                    "description": "",
+                    "type": "text",
+                    "enabled": true
+                }
+            ],
+            "dataMode": "urlencoded",
+            "version": 2,
+            "auth": null,
+            "time": 1524596147426,
+            "name": "matDashPostData",
+            "description": "",
+            "collectionId": "261a63ef-8964-3963-94bc-3d384e7be8bb",
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null
+        },
+        {
+            "id": "ffb1676c-a5f9-ba9a-228b-8ea9a60a3c43",
+            "headers": "",
+            "headerData": [],
+            "url": "http://localhost:3000/api/deleteUser/5ab8f986ffd8fb3759dcd2ea",
+            "queryParams": [],
+            "events": [],
+            "pathVariables": {},
+            "pathVariableData": [],
+            "method": "DELETE",
+            "data": null,
+            "dataMode": "params",
+            "version": 2,
+            "auth": null,
+            "time": 1524597129137,
+            "name": "MatDashDeleteUser",
+            "description": "",
+            "collectionId": "261a63ef-8964-3963-94bc-3d384e7be8bb",
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null
+        }
+    ]
+}
