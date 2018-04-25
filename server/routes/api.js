@@ -8,18 +8,18 @@ const User = require('../model/user');
 const db = "mongodb://root:toor@ds117625.mlab.com:17625/myapp";
 
 mongo.Promise = global.Promise;
-mongo.connect(db, function(err) {
+mongo.connect(db, function (err) {
     if (err) {
         consloe.log('connection error. ' + err);
     }
 });
 
-router.get('/', function(req, res) {
-    res.json({"msg":"api works"});
+router.get('/', function (req, res) {
+    res.json({ "msg": "api works" });
 });
 
-router.get('/userList', function(req, res) {
-    User.find({}).exec(function(err, response) {
+router.get('/userList', function (req, res) {
+    User.find({}).exec(function (err, response) {
         if (err) {
             res.json({ "msg": "User Data Get error" });
         } else {
@@ -28,8 +28,8 @@ router.get('/userList', function(req, res) {
     });
 });
 
-router.get('/userList/:id', function(req, res) {
-    User.findById(req.params.id).exec(function(err, response) {
+router.get('/userList/:id', function (req, res) {
+    User.findById(req.params.id).exec(function (err, response) {
         if (err) {
             res.json({ "msg": "User Data Get error" });
         } else {
@@ -38,12 +38,12 @@ router.get('/userList/:id', function(req, res) {
     });
 });
 
-router.post('/insertUser', function(req, res) {
+router.post('/insertUser', function (req, res) {
     var userData = new User();
     userData.name = req.body.name;
     userData.username = req.body.username;
     userData.password = req.body.password;
-    userData.save(function(err, lastData) {
+    userData.save(function (err, lastData) {
         if (err) {
             res.json({ "msg": "New data insert error" });
         } else {
@@ -52,13 +52,13 @@ router.post('/insertUser', function(req, res) {
     });
 });
 
-router.put('/updateUser/:id', function(req, res) {
+router.put('/updateUser/:id', function (req, res) {
     User.findByIdAndUpdate(req.params.id, {
-            $set: { name: req.body.name, username: req.body.username, password: req.body.password }
-        }, {
+        $set: { name: req.body.name, username: req.body.username, password: req.body.password }
+    }, {
             new: true
         },
-        function(err, updatedUser) {
+        function (err, updatedUser) {
             if (err) {
                 res.json({ "msg": "User Data Update error" });
             } else {
@@ -66,14 +66,32 @@ router.put('/updateUser/:id', function(req, res) {
             }
         });
 });
-router.delete('/deleteUser/:id', function(req, res) {
-    User.findByIdAndRemove(req.params.id, function(err, deletedUser) {
+router.delete('/deleteUser/:id', function (req, res) {
+    User.findByIdAndRemove(req.params.id, function (err, deletedUser) {
         if (err) {
             res.json({ "msg": "User Data delete error" });
         } else {
             res.json(deletedUser);
         }
     })
+});
+
+router.post('/signin', function (req, res) {
+    User.findOne({
+        username: req.body.username,
+        password: req.body.password
+    }, function (err, user) {
+        if (err) {
+
+        } else {
+            if(!user){
+                res.json({success:'no',msg:'Invalid user information'});
+            }
+            else{
+                res.json({ success: 'yes', msg: 'Login success', userData: user });
+            }
+        }
+    });
 });
 
 module.exports = router;
