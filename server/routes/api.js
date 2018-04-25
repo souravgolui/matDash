@@ -15,13 +15,13 @@ mongo.connect(db, function(err) {
 });
 
 router.get('/', function(req, res) {
-    res.send('api works');
+    res.json({"msg":"api works"});
 });
 
 router.get('/userList', function(req, res) {
     User.find({}).exec(function(err, response) {
         if (err) {
-            consloe.log('err. ' + err);
+            res.json({ "msg": "User Data Get error" });
         } else {
             res.json(response);
         }
@@ -31,7 +31,7 @@ router.get('/userList', function(req, res) {
 router.get('/userList/:id', function(req, res) {
     User.findById(req.params.id).exec(function(err, response) {
         if (err) {
-            consloe.log('err. ' + err);
+            res.json({ "msg": "User Data Get error" });
         } else {
             res.json(response);
         }
@@ -45,7 +45,7 @@ router.post('/insertUser', function(req, res) {
     userData.password = req.body.password;
     userData.save(function(err, lastData) {
         if (err) {
-            console.log('err = ' + err);
+            res.json({ "msg": "New data insert error" });
         } else {
             res.json(lastData);
         }
@@ -60,7 +60,7 @@ router.put('/updateUser/:id', function(req, res) {
         },
         function(err, updatedUser) {
             if (err) {
-                consloe.log(err);
+                res.json({ "msg": "User Data Update error" });
             } else {
                 res.json(updatedUser);
             }
@@ -69,7 +69,7 @@ router.put('/updateUser/:id', function(req, res) {
 router.delete('/deleteUser/:id', function(req, res) {
     User.findByIdAndRemove(req.params.id, function(err, deletedUser) {
         if (err) {
-            console.log(err);
+            res.json({ "msg": "User Data delete error" });
         } else {
             res.json(deletedUser);
         }

@@ -33,7 +33,7 @@
             "method": "PUT",
             "data": [{
                     "key": "name",
-                    "value": "Smriti",
+                    "value": "SGM",
                     "description": "",
                     "type": "text",
                     "enabled": true
