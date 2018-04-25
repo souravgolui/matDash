@@ -82,7 +82,7 @@ router.post('/signin', function (req, res) {
         password: req.body.password
     }, function (err, user) {
         if (err) {
-
+            res.json({ success: 'no', msg: 'Server error' });
         } else {
             if(!user){
                 res.json({success:'no',msg:'Invalid user information'});
