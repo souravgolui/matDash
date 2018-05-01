@@ -1,3 +1,30 @@
-<p>
-  login works!
-</p>
+<div class="login-main-div">
+
+    <div class="loginDiv card">
+
+        <div class="dp">
+            <img src="./assets/images/avatar/user.png" alt="">
+        </div>
+        <div class="login-box">
+            <form action="" (ngSubmit)="userLogin()" [formGroup]="loginForm">
+                <div class="input-field col s12">
+                    <input id="username" type="text" class="validate" formControlName="username">
+                    <label for="username">User Name</label>
+
+                    <span class="err-msg" *ngIf="username.touched && username.invalid">Username can not be blank.</span>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="password" type="password" class="validate" formControlName="password">
+                    <label for="password">Password</label>
+
+                    <span class="err-msg" *ngIf="password.touched && password.invalid">Password can not be blank.</span>
+                </div>
+                <button [disabled]="loginForm.invalid" class="btn waves-effect waves-light gradient-45deg-purple-deep-orange">Login</button>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>
